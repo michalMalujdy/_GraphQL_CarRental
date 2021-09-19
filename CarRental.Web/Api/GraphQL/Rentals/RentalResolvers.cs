@@ -3,7 +3,7 @@ using CarRental.Domain.Entities;
 using CarRental.Infrastructure.Persistence;
 using HotChocolate;
 
-namespace CarRental.Web.Api.GraphQL.Rentals.Query
+namespace CarRental.Web.Api.GraphQL.Rentals
 {
     public class RentalResolvers
     {

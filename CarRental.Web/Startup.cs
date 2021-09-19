@@ -1,8 +1,8 @@
 using CarRental.Application;
 using CarRental.Infrastructure;
 using CarRental.Web.Api.GraphQL;
-using CarRental.Web.Api.GraphQL.Cars.Query;
-using CarRental.Web.Api.GraphQL.Rentals.Query;
+using CarRental.Web.Api.GraphQL.Cars;
+using CarRental.Web.Api.GraphQL.Rentals;
 using CarRental.Web.Configuration;
 using GraphQL.Server.Ui.Voyager;
 using Microsoft.AspNetCore.Builder;

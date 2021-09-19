@@ -2,7 +2,7 @@
 using CarRental.Infrastructure.Persistence;
 using HotChocolate.Types;
 
-namespace CarRental.Web.Api.GraphQL.Cars.Query
+namespace CarRental.Web.Api.GraphQL.Cars
 {
     public class CarType : ObjectType<Car>
     {

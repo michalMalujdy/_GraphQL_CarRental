@@ -1,25 +1,26 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using CarRental.Application.Common;
 using CarRental.Application.Interfaces;
 using CarRental.Domain.Entities;
 using MediatR;
 
 namespace CarRental.Application.Features.Rentals.Commands
 {
-    public class CreateRentalHandler : IRequestHandler<CreateRentalCommand, Rental>
+    public class CreateRentalHandler : IRequestHandler<CreateRentalCommand, IdResult>
     {
         private readonly IApplicationDbContext _db;
 
         public CreateRentalHandler(IApplicationDbContext db)
             => _db = db;
 
-        public async Task<Rental> Handle(CreateRentalCommand command, CancellationToken ct)
+        public async Task<IdResult> Handle(CreateRentalCommand command, CancellationToken ct)
         {
             var rental = MapToRental(command);
             _db.Rentals.Add(rental);
             await _db.SaveChangesAsync(ct);
 
-            return rental;
+            return new IdResult(rental.Id);
         }
 
         private static Rental MapToRental(CreateRentalCommand command)

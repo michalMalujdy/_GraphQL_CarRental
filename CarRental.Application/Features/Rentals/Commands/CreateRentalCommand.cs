@@ -1,5 +1,5 @@
 ﻿using System;
-using CarRental.Domain.Entities;
+using CarRental.Application.Common;
 using MediatR;
 
 namespace CarRental.Application.Features.Rentals.Commands
@@ -10,5 +10,5 @@ namespace CarRental.Application.Features.Rentals.Commands
         string RenterFullName,
         string Notes,
         Guid CarId)
-        : IRequest<Rental>;
+        : IRequest<IdResult>;
 }
