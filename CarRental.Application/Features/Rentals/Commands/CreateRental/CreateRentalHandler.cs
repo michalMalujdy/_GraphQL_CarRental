@@ -1,11 +1,12 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
 using CarRental.Application.Common;
+using CarRental.Application.Common.Results;
 using CarRental.Application.Interfaces;
 using CarRental.Domain.Entities;
 using MediatR;
 
-namespace CarRental.Application.Features.Rentals.Commands
+namespace CarRental.Application.Features.Rentals.Commands.CreateRental
 {
     public class CreateRentalHandler : IRequestHandler<CreateRentalCommand, IdResult>
     {

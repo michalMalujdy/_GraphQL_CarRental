@@ -36,6 +36,8 @@ namespace CarRental.Web
                 .AddMutationType<Mutation>()
                 .AddType<CarType>()
                 .AddType<RentalType>();
+
+            services.AddSwaggerDocument();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -53,12 +55,16 @@ namespace CarRental.Web
             {
                 endpoints.MapControllers();
                 endpoints.MapGraphQL();
+                endpoints.Map("/", async context => context.Response.Redirect("/swagger"));
             });
 
             app.UseGraphQLVoyager(new VoyagerOptions
             {
                 GraphQLEndPoint = "/graphql"
             });
+
+            app.UseOpenApi();
+            app.UseSwaggerUi3();
         }
     }
 }
