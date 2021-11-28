@@ -1,4 +1,5 @@
-﻿using System.Threading.Tasks;
+﻿using System;
+using System.Threading.Tasks;
 using CarRental.Application.Common.Results;
 using CarRental.Application.Features.Rentals.Commands.CreateRental;
 using CarRental.Application.Features.Rentals.Commands.DeleteRental;
@@ -15,15 +16,18 @@ namespace CarRental.Web.Api.Rest.Controllers
             => await Mediator.Send(command);
 
         [HttpGet]
-        public async Task<ListResult<GetRentalsResult>> GetRentals([FromBody] GetRentalsQuery query)
+        public async Task<ListResult<GetRentalsResult>> GetRentals([FromQuery] GetRentalsQuery query)
             => await Mediator.Send(query);
 
-        [HttpPut]
-        public async Task UpdateRental([FromBody] UpdateRentalCommand command)
-            => await Mediator.Send(command);
+        [HttpPut("{rentalId}")]
+        public async Task UpdateRental([FromRoute] Guid rentalId, [FromBody] UpdateRentalCommand command)
+        {
+            command.RentalId = rentalId;
+            await Mediator.Send(command);
+        }
 
-        [HttpDelete]
-        public async Task DeleteRental([FromBody] DeleteRentalCommand command)
+        [HttpDelete("{rentalId}")]
+        public async Task DeleteRental([FromRoute] DeleteRentalCommand command)
             => await Mediator.Send(command);
     }
 }

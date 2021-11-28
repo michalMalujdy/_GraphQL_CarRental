@@ -1,5 +1,4 @@
 ﻿using System;
-using CarRental.Application.Common;
 using CarRental.Application.Common.Results;
 using MediatR;
 

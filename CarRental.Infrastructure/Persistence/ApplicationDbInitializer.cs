@@ -29,7 +29,7 @@ namespace CarRental.Infrastructure.Persistence
         private ICollection<Car> GetSeedCars()
             => new List<Car>
             {
-                new ()
+                new()
                 {
                     Make = "Renault",
                     Model = "Megane",
@@ -52,7 +52,7 @@ namespace CarRental.Infrastructure.Persistence
                         }
                     }
                 },
-                new ()
+                new()
                 {
                     Make = "Ford",
                     Model = "Focus",
@@ -68,7 +68,7 @@ namespace CarRental.Infrastructure.Persistence
                         }
                     }
                 },
-                new ()
+                new()
                 {
                     Make = "Opel",
                     Model = "Astra",
