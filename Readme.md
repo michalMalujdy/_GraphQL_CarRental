@@ -1,4 +1,4 @@
-﻿# GraphQL + Clean Architecture Demo - Youtube
+﻿# GraphQL + Clean Architecture Demo
 
 ## Overview
 Proof of Concept utilizing GraphQL in a basic application with the combination of [Clean Architecture](https://github.com/jasontaylordev/CleanArchitecture). The business context of the application is a car renting system that allows basic CRUD operations on a Car and a Rental. There are two Web interfaces to interact with the system - GraphQL and RESTful API, which are roughly equivalent in offered features.
