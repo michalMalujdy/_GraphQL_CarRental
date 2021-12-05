@@ -13,12 +13,9 @@ namespace CarRental.Infrastructure
             services.AddPooledDbContextFactory<ApplicationDbContext>(
                 o => o.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
 
-            // services.AddDbContext<ApplicationDbContext>(options =>
-            //     options.UseSqlServer(
-            //         configuration.GetConnectionString("DefaultConnection"),
-            //         b => b.MigrationsAssembly(typeof(ApplicationDbContext).Assembly.FullName)));
+            services.AddScoped<IApplicationDbContext>(
+                provider => provider.GetService<IDbContextFactory<ApplicationDbContext>>()!.CreateDbContext());
 
-            services.AddScoped<IApplicationDbContext>(provider => provider.GetService<IDbContextFactory<ApplicationDbContext>>()!.CreateDbContext());
             services.AddScoped<IApplicationDbInitializer, ApplicationDbInitializer>();
 
             return services;

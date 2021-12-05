@@ -16,7 +16,6 @@ namespace CarRental.Application
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
             services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
             services.AddTransient(typeof(IPipelineBehavior<,>), typeof(ValidationBehaviour<,>));
-            services.AddScoped<IValidationErrorHandler<CreateRentalCommand>, CreateRentalHandler>();
 
             return services;
         }

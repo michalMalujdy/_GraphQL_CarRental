@@ -35,18 +35,7 @@ namespace CarRental.Application.Common.Behaviours
             if (failures.Count == 0)
                 return await next();
 
-            await InvokeValidationErrorHandler(request, cancellationToken, failures);
-
             throw new ValidationException(failures);
-
-        }
-
-        private async Task InvokeValidationErrorHandler(TRequest request, CancellationToken ct, List<ValidationFailure> failures)
-        {
-            var validationErrorHandler = _serviceProvider.GetService<IValidationErrorHandler<TRequest>>();
-
-            if (validationErrorHandler != null)
-                await validationErrorHandler.HandleValidationError(request, failures, ct);
         }
     }
 }

@@ -78,9 +78,6 @@ namespace CarRental.Infrastructure.Persistence.Migrations
                     b.Property<DateTimeOffset>("StartsAt")
                         .HasColumnType("datetimeoffset");
 
-                    b.Property<int>("State")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
                     b.HasIndex("CarId");
