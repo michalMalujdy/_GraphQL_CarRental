@@ -16,5 +16,5 @@ namespace CarRental.Application.Features.Rentals.Queries.GetRentals
             string RegistrationNumber,
             int ProductionYear,
             bool IsDeleted);
-    };
+    }
 }

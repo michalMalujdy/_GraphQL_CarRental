@@ -1,3 +1,4 @@
+using System.Threading.Tasks;
 using CarRental.Application;
 using CarRental.Infrastructure;
 using CarRental.Web.Api.GraphQL;
@@ -55,7 +56,11 @@ namespace CarRental.Web
             {
                 endpoints.MapControllers();
                 endpoints.MapGraphQL();
-                endpoints.Map("/", async context => context.Response.Redirect("/swagger"));
+                endpoints.Map("/", context =>
+                {
+                    context.Response.Redirect("/graphql");
+                    return Task.CompletedTask;
+                });
             });
 
             app.UseGraphQLVoyager(new VoyagerOptions
